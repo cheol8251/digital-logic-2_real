@@ -1,0 +1,51 @@
+
+module decoder_tb;
+    reg A, B, C;
+    wire [7:0] O;
+
+    // Instantiate the module to be tested
+    decoder DUT (
+        .A(A),
+        .B(B),
+        .C(C),
+        .O(O)
+    );
+
+    // Stimulus
+    initial begin
+        // Test cases
+        // Case 1: C = 0, B = 0, A = 0
+        A = 0; B = 0; C = 0;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        // Case 2: C = 0, B = 0, A = 1
+        A = 1; B = 0; C = 0;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        // Case 3: C = 0, B = 1, A = 0
+        A = 0; B = 1; C = 0;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        // Case 4: C = 0, B = 1, A = 1
+        A = 1; B = 1; C = 0;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        // Case 5: C = 1, B = 0, A = 0
+        A = 0; B = 0; C = 1;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        // Case 6: C = 1, B = 0, A = 1
+        A = 1; B = 0; C = 1;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        // Case 7: C = 1, B = 1, A = 0
+        A = 0; B = 1; C = 1;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        // Case 8: C = 1, B = 1, A = 1
+        A = 1; B = 1; C = 1;
+        #10;
+        $display("A=%b, B=%b, C=%b, O=%b", A, B, C, O);
+        $finish;
+    end
+endmodule

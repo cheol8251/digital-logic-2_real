@@ -1,0 +1,20 @@
+module mux4_1(
+    output reg [1:0] y,
+    input [1:0] i0,
+    input [1:0] i1,
+    input [1:0] i2,
+    input [1:0] i3,
+    input s0,
+    input s1
+);
+
+always @* begin
+    case({s1, s0})
+        2'b00: y = i0;
+        2'b01: y = i1;
+        2'b10: y = i2;
+        2'b11: y = i3;
+    endcase
+end
+
+endmodule
